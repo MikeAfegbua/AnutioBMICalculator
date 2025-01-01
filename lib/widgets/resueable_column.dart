@@ -18,7 +18,7 @@ class ReuseableColumn extends StatelessWidget {
       children: [
         Icon(
           icon,
-          size: 80.0,
+          size: 50.0,
         ),
         const SizedBox(
           height: 18,

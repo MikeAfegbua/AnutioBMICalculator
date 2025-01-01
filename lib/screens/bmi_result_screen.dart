@@ -24,7 +24,7 @@ class _BMIResultScreenState extends State<BMIResultScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BMI CALCULATOR'),
+        title: const Text('CALCULATOR'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -51,24 +51,24 @@ class _BMIResultScreenState extends State<BMIResultScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      widget.ansResult.toUpperCase(),
-                      style: resultStyle,
-                    ),
+                    // Text(
+                    //   'RESULT',
+                    //   style: resultStyle,
+                    // ),
                     Text(
                       widget.ansText,
                       style: const TextStyle(
-                        fontSize: 100.0,
+                        fontSize: 150.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
-                      widget.ansAdvice,
-                      style: const TextStyle(
-                        fontSize: 22,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
+                    // Text(
+                    //   widget.ansAdvice,
+                    //   style: const TextStyle(
+                    //     fontSize: 22,
+                    //   ),
+                    //   textAlign: TextAlign.center,
+                    // ),
                   ],
                 ),
               ),

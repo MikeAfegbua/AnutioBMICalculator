@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:anutio_bmi_calculator/screens/bmi_result_screen.dart';
 import 'package:anutio_bmi_calculator/utils/constants.dart';
 import 'package:anutio_bmi_calculator/utils/enums.dart';
@@ -18,9 +20,9 @@ class InputScreen extends StatefulWidget {
 
 class _InputScreenState extends State<InputScreen> {
   MyGender selectedGender = MyGender.nonBinary;
-  int heightNum = 180;
-  int weightNum = 60;
-  int ageNum = 20;
+  int heightNum = 2;
+  int weightNum = 3;
+  int ageNum = 2;
 
   void calculateBmi() {
     setState(() {});
@@ -30,7 +32,7 @@ class _InputScreenState extends State<InputScreen> {
       weight: weightNum,
     );
 
-    final bmi = calc.calculateBMI();
+    // final bmi = calc.calculateBMI();
     final advice = calc.getAdvice();
     final answer = calc.getResult();
 
@@ -39,7 +41,7 @@ class _InputScreenState extends State<InputScreen> {
       MaterialPageRoute(
         builder: (context) {
           return BMIResultScreen(
-            ansText: bmi,
+            ansText: (heightNum * weightNum).toString(),
             ansResult: answer,
             ansAdvice: advice,
           );
@@ -53,7 +55,7 @@ class _InputScreenState extends State<InputScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Center(
-          child: Text('BMI CALCULATOR'),
+          child: Text('CALCULATOR'),
         ),
       ),
       body: Column(
@@ -73,8 +75,8 @@ class _InputScreenState extends State<InputScreen> {
                         ? activeCardColour
                         : inactiveCardColour,
                     child: const ReuseableColumn(
-                      icon: FontAwesomeIcons.mars,
-                      label: 'XY',
+                      icon: FontAwesomeIcons.add,
+                      label: 'ADD',
                     ),
                   ),
                 ),
@@ -89,8 +91,8 @@ class _InputScreenState extends State<InputScreen> {
                         ? activeCardColour
                         : inactiveCardColour,
                     child: const ReuseableColumn(
-                      icon: FontAwesomeIcons.venus,
-                      label: 'XX',
+                      icon: FontAwesomeIcons.minus,
+                      label: 'MINUS',
                     ),
                   ),
                 ),
@@ -105,62 +107,62 @@ class _InputScreenState extends State<InputScreen> {
                         ? activeCardColour
                         : inactiveCardColour,
                     child: const ReuseableColumn(
-                      icon: FontAwesomeIcons.heartPulse,
-                      label: 'N/A',
+                      icon: FontAwesomeIcons.multiply,
+                      label: 'MULTIPLY',
                     ),
                   ),
                 ),
               ],
             ),
           ),
-          Expanded(
-            child: ReuseableCard(
-              color: activeCardColour,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text('HEIGHT'),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    textBaseline: TextBaseline.alphabetic,
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
-                    children: [
-                      Text(
-                        heightNum.toString(),
-                        style: allTextStyle,
-                      ),
-                      const Text(
-                        'cm',
-                        style: labelTextStyle,
-                      ),
-                    ],
-                  ),
-                  SliderTheme(
-                    data: SliderTheme.of(context).copyWith(
-                      activeTrackColor: const Color(0xFFEB1555),
-                      inactiveTrackColor: const Color(0xFF8D8E98),
-                      thumbColor: const Color(0xFFEB1555),
-                      overlayColor: const Color(0x29EB1555),
-                      thumbShape:
-                          const RoundSliderThumbShape(enabledThumbRadius: 12.0),
-                      overlayShape:
-                          const RoundSliderOverlayShape(overlayRadius: 30.0),
-                    ),
-                    child: Slider(
-                      value: heightNum.toDouble(),
-                      min: 120.0,
-                      max: 220.0,
-                      onChanged: (double newVal) {
-                        setState(() {
-                          heightNum = newVal.round();
-                        });
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          // Expanded(
+          //   child: ReuseableCard(
+          //     color: activeCardColour,
+          //     child: Column(
+          //       mainAxisAlignment: MainAxisAlignment.center,
+          //       children: [
+          //         const Text('HEIGHT'),
+          //         Row(
+          //           mainAxisAlignment: MainAxisAlignment.center,
+          //           textBaseline: TextBaseline.alphabetic,
+          //           crossAxisAlignment: CrossAxisAlignment.baseline,
+          //           children: [
+          //             Text(
+          //               heightNum.toString(),
+          //               style: allTextStyle,
+          //             ),
+          //             const Text(
+          //               'cm',
+          //               style: labelTextStyle,
+          //             ),
+          //           ],
+          //         ),
+          //         SliderTheme(
+          //           data: SliderTheme.of(context).copyWith(
+          //             activeTrackColor: const Color(0xFFEB1555),
+          //             inactiveTrackColor: const Color(0xFF8D8E98),
+          //             thumbColor: const Color(0xFFEB1555),
+          //             overlayColor: const Color(0x29EB1555),
+          //             thumbShape:
+          //                 const RoundSliderThumbShape(enabledThumbRadius: 12.0),
+          //             overlayShape:
+          //                 const RoundSliderOverlayShape(overlayRadius: 30.0),
+          //           ),
+          //           child: Slider(
+          //             value: heightNum.toDouble(),
+          //             min: 120.0,
+          //             max: 220.0,
+          //             onChanged: (double newVal) {
+          //               setState(() {
+          //                 heightNum = newVal.round();
+          //               });
+          //             },
+          //           ),
+          //         ),
+          //       ],
+          //     ),
+          //   ),
+          // ),
           Expanded(
             child: Row(
               children: [
@@ -170,7 +172,7 @@ class _InputScreenState extends State<InputScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text('WEIGHT', style: labelTextStyle),
+                        const Text('VALUE A', style: labelTextStyle),
                         Text(
                           weightNum.toString(),
                           style: allTextStyle,
@@ -219,7 +221,7 @@ class _InputScreenState extends State<InputScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text('AGE', style: labelTextStyle),
+                        const Text('VALUE B', style: labelTextStyle),
                         Text(
                           ageNum.toString(),
                           style: allTextStyle,

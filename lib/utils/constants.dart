@@ -6,7 +6,7 @@ const allTextStyle = TextStyle(
 );
 
 const labelTextStyle = TextStyle(
-  fontSize: 18,
+  fontSize: 12,
   color: Color(0xFF8D8E98),
 );
 
